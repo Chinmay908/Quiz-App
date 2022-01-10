@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Questions } from "./Questions";
 
+/* Answerkey Component */
 const Answerkey = () => {
   const [questions, setQuestions] = useState(Questions);
   return (
@@ -17,9 +18,8 @@ const Answerkey = () => {
         {questions.map((ques, index) => {
           const { options } = ques;
           const answer = options.filter((optn) => optn.isCorrect);
-          // console.log(answer[0].option);
           return (
-            <tr>
+            <tr key={index}>
               <td>{index + 1}</td>
               <td>{answer[0].option}</td>
             </tr>

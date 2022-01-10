@@ -5,7 +5,7 @@ body {
   display: flex;
   justify-content: center;
 }
-
+/* Parent of sidebar and container*/
 .parent-container {
   display: flex;
   justify-content: center;
@@ -25,7 +25,7 @@ body {
   -webkit-box-shadow: 0px 3px 14px 5px rgba(0, 29, 61, 0.89);
   -moz-box-shadow: 0px 3px 14px 5px rgba(0, 29, 61, 0.89);
 }
-
+/* Home Page button */
 .home-container {
   border: 3px solid #118ab2;
   background-color: #001d3d;
@@ -59,6 +59,7 @@ button {
   border: none;
   background-color: white;
 }
+/* Contains ques and options */
 .box {
   display: flex;
   justify-content: space-evenly;
@@ -141,14 +142,14 @@ h1 {
   font-size: 20px;
   float: right;
   background-color: #001d3d;
-  text-decoration: underline;
+  /* text-decoration: underline; */
 }
 
 #answer-key {
   color: rgb(13, 247, 13);
   float: left;
   font-size: 20px;
-  text-decoration: underline;
+  /* text-decoration: underline; */
 }
 
 table,
@@ -167,6 +168,7 @@ table {
   text-align: center;
 }
 
+/* Left section showing status of ques */
 .sidebar {
   width: 300px;
   height: auto;
@@ -186,7 +188,6 @@ table {
 .table {
   margin: 0px;
   border: none;
-  /* color: rgb(11, 184, 11); */
 }
 
 .table td,
@@ -196,6 +197,7 @@ th {
   border: none;
 }
 
+/* Media Queries for mobile view */
 @media screen and (max-width: 482px) {
   .parent-container {
     display: block;
@@ -206,7 +208,6 @@ th {
     height: 490px;
     padding:6px;
     margin-bottom: 20px;
-    /* margin-top:20px; */
   }
   .box {
     display: block;
@@ -257,6 +258,7 @@ th {
   }
 }
 
+/* Media Queries for horizontal mobile view */
 @media screen and (max-width: 821px) and (min-width: 482px) {
   .parent-container {
     display: block;
@@ -267,7 +269,6 @@ th {
     height: 475px;
     padding: 7px;
     margin-bottom: 15px;
-    /* margin-top:20px; */
   }
   .box {
     display: block;

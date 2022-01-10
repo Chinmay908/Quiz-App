@@ -1,3 +1,4 @@
+/* Array of question objects */
 export const Questions = [
   {
     id: null,

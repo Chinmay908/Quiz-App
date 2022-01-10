@@ -4,48 +4,55 @@ import { Questions } from "./Questions";
 import { FaChevronLeft } from "react-icons/fa";
 import { FaChevronRight } from "react-icons/fa";
 
+/* Dashboard Component */
 const Dashboard = () => {
   const [score, setScore] = useState(0);
   const [ques, setQues] = useState(Questions);
   const [result, setResult] = useState(false);
   const [index, setIndex] = useState(0);
-  console.log(index);
   const singleQues = ques[index];
   const navigate = useNavigate();
+
+  /* Function to Validate answer*/
   const display = (indx) => {
     if (singleQues.options[indx].isCorrect) {
       singleQues.isMarked = true;
       singleQues.myAns = 1;
       singleQues.id = indx;
       setQues(ques);
-      console.log(singleQues);
-      console.log(singleQues.options[indx].isCorrect);
+      // console.log(singleQues.options[indx].isCorrect);
     } else {
-      console.log(singleQues.options[indx].isCorrect);
       singleQues.isMarked = true;
       singleQues.myAns = 0;
       singleQues.id = indx;
       setQues(ques);
     }
-    console.log(singleQues.isMarked, singleQues.myAns, singleQues.id);
   };
+
+  /* Function to navigate to next question */
   const nextQues = () => {
     if (index < ques.length - 1) {
       setIndex(index + 1);
       setQues(ques);
     }
   };
+
+  /* Function to navigate to previous question */
   const prevQues = () => {
     if (index > 0) {
       setIndex(index - 1);
     }
   };
+
+  /* Function to display answers after submitting the quiz */
   const redirect = () => {
     setIndex(0);
     setResult(true);
     calScore();
     navigate("/dashboard");
   };
+
+  /* Function to End quiz and redirect to home page */
   const redirectToHome = () => {
     setIndex(0);
     ques.map((que) => {
@@ -54,22 +61,22 @@ const Dashboard = () => {
       que.id = null;
       return null;
     });
-    console.log(ques);
     setScore(0);
     setResult(false);
     navigate("/");
   };
 
+  /* Function to calculate total score */
   const calScore = () => {
     let total = 0;
     ques.map((x) => {
       if (x.myAns) {
         total = total + 1;
-        console.log(x);
       }
     });
     setScore(total);
   };
+
   return (
     <>
       <h1>Quizz</h1>
@@ -77,7 +84,6 @@ const Dashboard = () => {
         <div className="sidebar">
           <table className="table">
             {ques.map((quest, index) => {
-              // console.log(quest);
               return (
                 <tr>
                   <td>
@@ -137,6 +143,7 @@ const Dashboard = () => {
                           ? `checked`
                           : null
                       }
+                      disabled={result ? true : false}
                     />
                     <label htmlFor={choice.option}>{choice.option}</label>
                   </div>
@@ -162,7 +169,7 @@ const Dashboard = () => {
             ) : null}
             {result === false ? (
               <button className="end-quiz" onClick={redirect}>
-                View Score
+                Submit
               </button>
             ) : (
               <button className="end-quiz" onClick={redirectToHome}>

@@ -12,7 +12,7 @@
 
 * This is the home page. Click on the Play Quizz button to start the quiz.
 
-![home](/public/images/img1.png)
+![home](/public/images/image1.png)
 
 * This is the dashboard page. Left section displays the status of the questions while right section carries the question along with its options.
 
